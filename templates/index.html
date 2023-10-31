@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>AI Prompt Generator</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+    <div class="container mt-5">
+        <h1 class="text-new mb-4">AI Instagram Caption Generator</h1>
+        <div class="form-group">
+            <label for="imageUpload">Upload an image:</label>
+            <input type="file" id="imageUpload" class="form-control-file" accept="image/*" onchange="previewImage()">
+        </div>
+        <div class="mt-4">
+            <img id="uploadedImage" src="#" alt="Uploaded Image" style="max-width: 400px; height: 300px; display: none;">
+        </div>
+        <br>
+        <button class="btn btn-success" onclick="generateResponse()">Generate Response</button>
+        <button class="btn btn-warning" onclick="copyResponse()">Copy Response</button>
+        <br>
+        <div class="mt-4 typing-effect">
+            <h2 class="text-secondary mb-3">Generated Response:</h2>
+            <p id="response" class="font-weight-bold"></p>
+        </div>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    <script>
+        function previewImage() {
+            const imageUpload = document.getElementById('imageUpload');
+            const uploadedImage = document.getElementById('uploadedImage');
+
+            if (imageUpload.files && imageUpload.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function (e) {
+                    uploadedImage.src = e.target.result;
+                    uploadedImage.style.display = 'block';
+                };
+                reader.readAsDataURL(imageUpload.files[0]);
+            }
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,31 @@
+/* CSS (styles.css) */
+
+.text-new {
+    color: #E4405F; /* Your desired HEX color code */
+}
+
+
+.typing-effect {
+    position: relative;
+}
+
+.typing-effect::after {
+    content: "|"; /* Vertical pipe representing the typing cursor */
+    position: absolute;
+    display: inline-block;
+    width: 10px;
+    height: 20px;
+    animation: typingCursor 0.7s infinite;
+}
+
+@keyframes typingCursor {
+    0% {
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+    }
+}
