@@ -19,7 +19,7 @@ app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # Configure the API details for AI model
 API_URL = "https://api-inference.huggingface.co/models/prasanna2003/blip-image-captioning"
-headers = {"Authorization": "Bearer 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"}
+headers = {"Authorization": ""}
 
 class AIResponseGenerator:
     def __init__(self):
